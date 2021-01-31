@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Ticker App</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+ <div class="container"> 
+ 
+ 
+  <header">
+     <div class="header-content">
+       <h1 class="title">Stock Ticker App</h1>
+       <p class="tagline">Learn Up-to-Date Information About Stock Ticker</p>
+    </div>
+ </header>
+
+<main>
+      
+ <form id="search" class="search-api">
+       
+      <div class="search-panel">  
+          <label for="searchStock">Enter a company name to find a stock info:</label>
+          <div> 
+            <input id="searchTerm" type="text" placeholder="ex: company" required>
+            <input type="submit" value="Search"> 
+        </div> 
+      </div> 
+</form>
+     
+     <!-- CONTAINER FOR SEARCH RESULTS -->
+    <aside id="results" class="results">
+      <h2>Daily Stock Info</h2>
+      <div class="stock-info"> 
+        <h2 class="stock-symbol"></h2>
+          <div class="stock-price">
+            <p class="current-price">150</p>
+            <p class="character">$</p>
+         </div> 
+         <bg-quote class="date" >Jan 29, 2021 7:59 p.m.</bg-quote>
+      </div>
+
+      <div class="change-data"> 
+        <h3 class="">Change</h3>
+        <bg-quote class="change" format="0,0.00" >-0.36</bg-quote>
+        <bg-quote class="percentage-change" format="0,0.00" >-0.36</bg-quote>
+      </div>
+       <div class="volume-data"> 
+        <h3 class="">Volume</h3>
+        <span class="volume-label">Volume:</span>
+        <bg-quote field="volume" >2.23M</bg-quote>
+      </div>
+
+      </aside>
+                
+ 
+    </main>
+  </div>
+
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
+
+
+ 

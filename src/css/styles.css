@@ -1,0 +1,122 @@
+/*!
+ 
+ */
+
+ html, body {
+    line-height: 1.5;
+    font-size: 100%;
+    color: rgb(26, 25, 25);
+    height: 100%;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: column;
+    background: #82E8F6;
+
+ }
+
+ h1 {
+     font-size: 3rem;
+     margin: 0;
+ }
+
+ h2 {
+    font-size: 2rem;
+    margin: 0;
+ }
+
+ h3 {
+    font-size: 1.5rem;
+    margin: 0;
+ }
+
+ p, b-qoute {
+    font-size: 1.2rem; 
+ }
+
+ .tagline {
+     font-size: 1.5rem;
+     font-style: italic;
+     margin-top: 0;
+ }
+
+ form {
+     margin-top: 70px;
+     margin-bottom: 0;
+ }
+
+.container {
+    max-width: 650px;
+    margin: 0 auto;
+}
+label {
+ font-size: 1.1rem;
+}
+
+input[type="text"] {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 1.25rem;
+    border-radius: 5px;
+    border: 1px solid #a2adb7;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 0;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+input[type=submit] {
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    border: 1px solid #a2adb7;
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.header-content {
+    text-align: center;
+}
+
+.search-panel {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.results {
+    background-color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.stock-price {
+    display: flex;
+    justify-content: center;
+}
+
+.current-price,
+.character {
+    font-size: 4rem;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0;
+}
+
+
+@media (min-width: 600px) {
+html, body {
+    line-height: 1.5;
+    font-size: 100%;
+    height: 100%;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: column;
+    background: #82E8F6;
+    background: -webkit-linear-gradient(top left, #82E8F6, #5C54FE);
+    background: -moz-linear-gradient(top left, #82E8F6, #5C54FE);
+    background: linear-gradient(to bottom right, #82E8F6, #5C54FE);
+    
+  }
+}
+
