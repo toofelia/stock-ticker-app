@@ -83,7 +83,7 @@ input[type=submit] {
     margin-bottom: 2rem;
 }
 
-.results {
+.results aside {
     background-color: aliceblue;
     border-radius: 10px;
     text-align: center;

@@ -10,7 +10,7 @@
  <div class="container"> 
  
  
-  <header">
+  <header>
      <div class="header-content">
        <h1 class="title">Stock Ticker App</h1>
        <p class="tagline">Learn Up-to-Date Information About Stock Ticker</p>
@@ -22,16 +22,22 @@
  <form id="search" class="search-api">
        
       <div class="search-panel">  
-          <label for="searchStock">Enter a company name to find a stock info:</label>
+          <h3>Enter a company name to find a stock info:</h3>
           <div> 
-            <input id="searchTerm" type="text" placeholder="ex: company" required>
+            <label for="stockTicker">Stock Ticker</label>
+            <input id="stockTicker" name="stockTicker" type="text" placeholder="ex: company" required>
             <input type="submit" value="Search"> 
         </div> 
       </div> 
 </form>
-     
+
+ <!-- CONTAINER FOR SEARCH RESULTS -->
+<div id="results" class="results">
+        
+</div>
+  
      <!-- CONTAINER FOR SEARCH RESULTS -->
-    <aside id="results" class="results">
+    <!-- <aside id="results" class="results">
       <h2>Daily Stock Info</h2>
       <div class="stock-info"> 
         <h2 class="stock-symbol"></h2>
@@ -54,13 +60,13 @@
       </div>
 
       </aside>
-                
+                 -->
  
     </main>
   </div>
 
 
-    <script src="js/index.js"></script>
+    <script  src="js/index.js"></script>
   </body>
 </html>
 

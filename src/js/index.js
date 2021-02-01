@@ -8,12 +8,12 @@
         - Results
 */
 
-import SearchController from "./controllers/search-controller";
-import SwapiModel from "./models/alpha-vantage";
-import ResultsView from "./views/results-view";
-import SearchView from "./views/search-view";
+import SearchController from "./controllers/search-controller.js";
+import AlphaVantageModel from "./models/alpha-vantage.js";
+import SearchView from "./views/search-view.js";
+import ResultsView from "./views/results-view.js";
 
-//const model = new SwapiModel();
-//const searchView = new SearchView("#search");
-//const resultsView = new ResultsView("#results");
-//const searchController = new SearchController(model, searchView, resultsView);
+const model = new AlphaVantageModel();
+const searchView = new SearchView("#search");
+const resultsView = new ResultsView("#results");
+const searchController = new SearchController(model, searchView, resultsView);

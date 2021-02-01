@@ -1,0 +1,32 @@
+{
+  "name": "stock-ticker-app",
+  "version": "1.0.0",
+  "description": "Setting Up project and creating continuous integratio and continuous deployment using github and netlify.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html  ",
+    "build": "parcel build src/index.html "
+  },
+  "keywords": [],
+  "author": "Ekaterina Meskhenkova",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "http-server": "^0.12.3",
+    "parcel": "^1.12.4",
+    "parcel-bundler": "^1.12.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toofelia/stock-ticker-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toofelia/stock-ticker-app/issues"
+  },
+  "homepage": "https://github.com/toofelia/stock-ticker-app#readme"
+}

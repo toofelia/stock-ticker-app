@@ -1,17 +1,21 @@
-/* import ejs from "ejs";
+import ejs from "ejs";
 
-const personView = `
-<aside class="person">
-  <header><h3 class="name"> <%= person.name %></h3></header>
-   
-  <ul class="details" >
-  <li> height: <span><%= person.height %>cm</span></li>
-  <li> weight:<span><%= person.mass %>Kg</span></li>
-  <li>hair color: <span><%= person.hair_color %></span></li>
-  </ul>
+const stockTickerView = `
+<aside class="stockData">
+<header><h3 class="stockTicker"> <%= stockSymbol %></h3></header>
+
+<ul class="stockdetails"> 
+    <li> stock-symbol: <span><%= stockSymbol %></span></li>
+    <li> stock-price: <span><%= stockPrice %> $ </span></li> 
+    <li> date: <span><%= date %> $ </span></li>
+    <li> change: <span><%= change %> $ </span></li>
+    <li> change percentage: <span><%= changePercentage %> </span></li>
+    <li> volume: <span><%= volume %></span></li>
+</ul>
 
 </aside>
 `;
+
 
 const noResultsView = `
 <aside class="error">
@@ -24,22 +28,25 @@ const noResultsView = `
 function ResultsView(viewId) {
   this.container = document.querySelector(viewId);
 
-  this.configUI = function (person) {
-    const elem = ejs.render(personView, { person });
-    this.container.insertAdjacentHTML("afterbegin", elem);
-  };
   this.renderPeople = function(people){
         this.removeChildElements()
-        if(people.results.length === 0){
+        if(people == null 
+          || people["Global Quote"] == null 
+          || Object.keys(people["Global Quote"]).length === 0){
           const elem = ejs.render(noResultsView)
           this.container.insertAdjacentHTML('afterbegin', elem)
-        }
-        if(people.results.length !== 0){
-          people.results.forEach(person=>{
-            const elem = ejs.render(personView, {person:person})
+        } else {
+          const quote = people["Global Quote"];
+            const elem = ejs.render(stockTickerView, 
+              {stockSymbol:quote["01. symbol"],
+              stockPrice:quote["05. price"],
+              date:quote["07. latest trading day"],
+              change:quote["09. change"],
+              changePercentage:quote["10. change percent"],
+              volume:quote["06. volume"],
+              }
+              )
             this.container.insertAdjacentHTML('afterbegin', elem)
-
-          })
 
         }
   }
@@ -52,4 +59,5 @@ function ResultsView(viewId) {
 
 }
 
-export default ResultsView; */
+export default ResultsView;
+
