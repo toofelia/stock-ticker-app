@@ -6,8 +6,10 @@ const stockTickerView = `
 <h2> <span><%= stockSymbol %></span></h2>
   <div class="stock-price">
       <span class="price" id="price"><%= stockPrice %></span>
+    <div class="stock-price">
       <span class="change <%= changeClass %>" id="change"></i><%= change %></span>
       <span class="change-percentage <%= changeClass %>" id="change-percentage"><%- changePercentage %></span>
+    </div>
   </div>
       <p class="bold">Date: <span class="date" id="date"><%= date %></span></p>
       <p class="bold">Volume: <span class="volume" id="volume"><%= volume %></span></p>

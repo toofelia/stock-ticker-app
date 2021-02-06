@@ -8,10 +8,13 @@
     color: rgb(26, 25, 25);
     height: 100%;
     display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     flex-direction: column;
     background: #82E8F6;
+ }
 
+ .main-heading {
+     color: #5C54FE;
  }
 
  .container {
@@ -49,7 +52,7 @@
  .date,
  .volume {
     font-size: 1.2rem; 
-    font-weight:300;
+    font-weight:400;
  }
 
  .tagline {
@@ -96,23 +99,24 @@ input[type=submit] {
 
 .results aside {
     border-radius: 5px;
-    padding: 1.5rem;
+    padding-top: 1.5rem;
 }
 
 
 .price,
 .character {
     font-size: 3rem;
-    font-weight: bold;
+    font-weight: 300;
     color: #0D6EFD;
     margin: 0;
     padding-right: 10px;
+    line-height: 4.5rem;
 }
 
 .change, 
 .change-percentage {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 400;
     padding-right: 10px;
 }
 
@@ -135,7 +139,7 @@ html, body {
     font-size: 100%;
     height: 100%;
     display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     flex-direction: column;
     background: #82E8F6;
     background: -webkit-linear-gradient(top left, #82E8F6, #5C54FE);
@@ -146,7 +150,6 @@ html, body {
   
   .stock-price {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
 }
 
