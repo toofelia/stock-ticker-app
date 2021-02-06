@@ -2,16 +2,16 @@ import ejs from "ejs";
 
 const stockTickerView = `
 <aside class="stockData">
-<header><h3 class="stockTicker"> <%= stockSymbol %></h3></header>
-
-<ul class="stockdetails"> 
-    <li> stock-symbol: <span><%= stockSymbol %></span></li>
-    <li> stock-price: <span><%= stockPrice %> $ </span></li> 
-    <li> date: <span><%= date %> $ </span></li>
-    <li> change: <span><%= change %> $ </span></li>
-    <li> change percentage: <span><%= changePercentage %> </span></li>
-    <li> volume: <span><%= volume %></span></li>
-</ul>
+<div class="stockdetails"> 
+<h2> <span><%= stockSymbol %></span></h2>
+  <div class="stock-price">
+      <span class="price" id="price"><%= stockPrice %></span>
+      <span class="change <%= changeClass %>" id="change"></i><%= change %></span>
+      <span class="change-percentage <%= changeClass %>" id="change-percentage"><%- changePercentage %></span>
+  </div>
+      <p class="bold">Date: <span class="date" id="date"><%= date %></span></p>
+      <p class="bold">Volume: <span class="volume" id="volume"><%= volume %></span></p>
+  </div>
 
 </aside>
 `;
@@ -25,6 +25,40 @@ const noResultsView = `
 </aside>
 `;
 
+function getChangeClass(change) {
+  switch(Math.sign(change)) {
+    case 1:
+        return "positive";
+    case -1:
+        return "negative";
+    default:
+        return "neutral";
+  }
+}  
+
+function formatChange(change) {
+  switch(Math.sign(change)) {
+    case 1:
+        return "+" + change.toFixed(2);
+    case -1:
+        return "-" + (-change).toFixed(2);
+    default:
+        return change.toFixed(2);
+  }
+}
+
+function formatChangePercentage(changePct) {
+  const change = new Number(changePct.replace("%", ""));
+  switch(Math.sign(change)) {
+    case 1:
+        return change.toFixed(2) + "%&nbsp;&uarr;";
+    case -1:
+        return (-change).toFixed(2) + "%&nbsp;&darr;";
+    default:
+        return change.toFixed(2);
+  }
+}
+
 function ResultsView(viewId) {
   this.container = document.querySelector(viewId);
 
@@ -37,16 +71,17 @@ function ResultsView(viewId) {
           this.container.insertAdjacentHTML('afterbegin', elem)
         } else {
           const quote = people["Global Quote"];
-            const elem = ejs.render(stockTickerView, 
+          const change = new Number(quote["09. change"]);
+          const elem = ejs.render(stockTickerView, 
               {stockSymbol:quote["01. symbol"],
-              stockPrice:quote["05. price"],
+              stockPrice:new Number(quote["05. price"]).toFixed(2),
+              change: formatChange(change),
+              changePercentage: formatChangePercentage(quote["10. change percent"]),
               date:quote["07. latest trading day"],
-              change:quote["09. change"],
-              changePercentage:quote["10. change percent"],
               volume:quote["06. volume"],
-              }
-              )
-            this.container.insertAdjacentHTML('afterbegin', elem)
+              changeClass: getChangeClass(change) 
+              })
+          this.container.insertAdjacentHTML('afterbegin', elem)
 
         }
   }

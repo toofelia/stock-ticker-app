@@ -5,67 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stock Ticker App</title>
     <link rel="stylesheet" href="./css/styles.css" />
-  </head>
+
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+
+    </head>
   <body>
- <div class="container"> 
+    <div class="container-sm"> 
  
- 
-  <header>
-     <div class="header-content">
-       <h1 class="title">Stock Ticker App</h1>
-       <p class="tagline">Learn Up-to-Date Information About Stock Ticker</p>
+  <header class="row justify-content-center pb-5">
+     <div class="content-header col-sm-4 justify-center">
     </div>
  </header>
 
-<main>
+
+ <main class="mt-5">
+ <div class="row justify-content-center">
+  <div class="col-lg-6 col-md-9">
+    <div class="card shadow-lg">
+      <div class="card-body p-4 p-md-5">
+        <h1 class="display-4">Stock Ticker App</h1>
+        <p class="lead">Learn up-to-date information about stock ticker.</p>
+        
+        <form id="search" class="search-api">
+          <label for="stockTicker" class="form-label">Stock Ticker: </label>
+          <div class="input-group col-sm-8">
+           
+            <input id="stockTicker" name="stockTicker" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+              aria-describedby="search-addon" />
+            <button type="submit" class="btn btn-outline-primary">search</button>
+          </div>
+        </form>
+
+        <div id="results" class="results ">
       
- <form id="search" class="search-api">
-       
-      <div class="search-panel">  
-          <h3>Enter a company name to find a stock info:</h3>
-          <div> 
-            <label for="stockTicker">Stock Ticker</label>
-            <input id="stockTicker" name="stockTicker" type="text" placeholder="ex: company" required>
-            <input type="submit" value="Search"> 
-        </div> 
-      </div> 
-</form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
  <!-- CONTAINER FOR SEARCH RESULTS -->
-<div id="results" class="results">
-        
-</div>
-  
-     <!-- CONTAINER FOR SEARCH RESULTS -->
-    <!-- <aside id="results" class="results">
-      <h2>Daily Stock Info</h2>
-      <div class="stock-info"> 
-        <h2 class="stock-symbol"></h2>
-          <div class="stock-price">
-            <p class="current-price">150</p>
-            <p class="character">$</p>
-         </div> 
-         <bg-quote class="date" >Jan 29, 2021 7:59 p.m.</bg-quote>
-      </div>
-
-      <div class="change-data"> 
-        <h3 class="">Change</h3>
-        <bg-quote class="change" format="0,0.00" >-0.36</bg-quote>
-        <bg-quote class="percentage-change" format="0,0.00" >-0.36</bg-quote>
-      </div>
-       <div class="volume-data"> 
-        <h3 class="">Volume</h3>
-        <span class="volume-label">Volume:</span>
-        <bg-quote field="volume" >2.23M</bg-quote>
-      </div>
-
-      </aside>
-                 -->
- 
-    </main>
-  </div>
 
 
+
+
+</main>
     <script  src="js/index.js"></script>
   </body>
 </html>
