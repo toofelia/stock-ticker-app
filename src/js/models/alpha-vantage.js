@@ -4,16 +4,12 @@ swap base url: 'https://www.alphavantage.co/documentation/'
 initial query '
 */
 
+//a function to connect Alpha Vantage Api
 function AlphaVantageModel() {
   this.apiBaseURL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&apikey=9MR2V0SL3G20PVEF&";
 
-  this.query = async function (url) {
-    const req = await fetch(url);
-    const res = await req.json();
-    return res;
-    // console.log(res);
-  };
 
+//function to fetch data
  this.search = async function (data){
    let url = new URL(this.apiBaseURL)
    // html encode the search params
@@ -27,14 +23,10 @@ function AlphaVantageModel() {
     const req = await fetch(url)
     res = await req.json()
 
-   } catch {
+      } catch {
    }
-   
-    return res
-    
+    return res  
  }
- 
-
   return this;
 }
 

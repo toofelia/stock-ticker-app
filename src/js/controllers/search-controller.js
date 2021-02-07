@@ -1,30 +1,39 @@
 
+
+/*** Module for controller logic ***/
+
+
 function SearchController(model, searchView, resultsView) {
   this.model = model;
   this.searchView = searchView;
   this.resultsView = resultsView;
-  //this = 'stockTicker'
+  
 
-  // configUI - this is the initial setup for the controller
+  // configUI - the initial setup for the controller
   this.configUI = async function () {
-    // submit event on the form
-    this.searchView.view.addEventListener('submit', this.onHandleSubmit)
+      // submit event on the form
+      this.searchView.view.addEventListener('submit', this.onHandleSubmit)
   };
 
-  this.onCheckHandler =     (e)=>  {
-    // this = e.currentTarget
-     this.searchView.updateLabel(this)
-  };
-
+  //submit function for search call
   this.onHandleSubmit = async (e) =>{
     e.preventDefault();
-    // combine our search
-    // no validation
-    const searchParams = {
-      name:e.currentTarget.stockTicker.value
+    const tickerToSearch = e.currentTarget.stockTicker.value.trim();
+ 
+  //validate if search is empty and output an error message 
+    var tickerSearch;
+    if(tickerToSearch == "") {
+        tickerSearch = { error: "Please enter a stock ticker symbol."}
+    } else {
+      const searchParams = {
+        name: tickerToSearch
+      }
+  
+    //calling search function and pass in resultsView
+     tickerSearch = await this.model.search(searchParams) 
     }
-   const tickerSearch = await this.model.search(searchParams)
-    this.resultsView.renderPeople(tickerSearch)
+
+    this.resultsView.renderStockData(tickerSearch)
   } 
 
   this.configUI();

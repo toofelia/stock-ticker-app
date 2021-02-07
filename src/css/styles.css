@@ -1,6 +1,5 @@
-/*!
- 
- */
+
+/* main styles */
 
  html, body {
     line-height: 1.5;
@@ -13,14 +12,14 @@
     background: #82E8F6;
  }
 
- .main-heading {
-     color: #5C54FE;
- }
-
  .container {
      max-width: 650px;
      margin: 0 auto;
  }
+
+ .main-heading {
+    color: #5C54FE;
+}
 
  h1 {
      font-size: 3rem;
@@ -32,16 +31,14 @@
     margin: 0;
  }
 
- h3 {
-    font-size: 1.5rem;
-    font-weight: 300;
- }
 
  p {
-    font-size: 1.2rem; 
+    font-size: 1rem; 
     margin: 0;
     margin-bottom: 0;
  }
+
+/* results view  */
 
  .bold {
     font-size: 1.2rem; 
@@ -55,44 +52,6 @@
     font-weight:400;
  }
 
- .tagline {
-     font-size: 1.5rem;
-     font-style: italic;
-     margin-top: 0;
- }
-
- form {
-     margin-top: 70px;
-     margin-bottom: 0;
- }
-
-
-label {
- font-size: 1.1rem;
-}
-
-input[type="text"] {
-    width: 250px;
-    height: 30px;
-    margin-bottom: 1.25rem;
-    border-radius: 5px;
-    border: 1px solid #a2adb7;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 0;
-    margin-left: 5px;
-    font-size: 16px;
-}
-
-input[type=submit] {
-    border-radius: 5px;
-    cursor: pointer;
-    height: 40px;
-    border: 1px solid #a2adb7;
-    font-size: 16px;
-}
-
-
 .search-panel {
     margin-bottom: 2rem;
 }
@@ -103,8 +62,7 @@ input[type=submit] {
 }
 
 
-.price,
-.character {
+.price {
     font-size: 3rem;
     font-weight: 300;
     color: #0D6EFD;

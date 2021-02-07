@@ -1,7 +1,8 @@
 /* 
     MVC structure
 
-    Model
+    Model: 
+        - Alpha Vantage Api
     Controller (SearchView, ResultsView, Model)
     Views:
         - Search

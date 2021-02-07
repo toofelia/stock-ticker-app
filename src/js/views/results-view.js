@@ -1,4 +1,16 @@
+
+/*** Module for the views ***/
+
 import ejs from "ejs";
+
+/*creating template for the output result with stock ticker data:
+ -- stock symbol
+ -- price
+ -- change
+ -- change percentage
+ -- date
+ -- volume
+*/
 
 const stockTickerView = `
 <aside class="stockData">
@@ -18,15 +30,14 @@ const stockTickerView = `
 </aside>
 `;
 
-
+// display an error message in case of empty search or invalid input 
 const noResultsView = `
-<aside class="error">
-  <header>
-    <h3> There are no results matching this search</h3>
- <header>
+<aside class="alert alert-warning mt-3" role="alert">
+    <p><%= error %></p>
 </aside>
 `;
 
+//change colour depending on positive or negative number for change and change percentage data
 function getChangeClass(change) {
   switch(Math.sign(change)) {
     case 1:
@@ -38,6 +49,8 @@ function getChangeClass(change) {
   }
 }  
 
+//rounding the number for change data to keep only two decimals
+//adding '+' or '-' depending on the positive or negative change
 function formatChange(change) {
   switch(Math.sign(change)) {
     case 1:
@@ -49,6 +62,8 @@ function formatChange(change) {
   }
 }
 
+//rounding the number for change percentage data to keep only two decimals
+//remove '%' for changing and add it as an html symbol
 function formatChangePercentage(changePct) {
   const change = new Number(changePct.replace("%", ""));
   switch(Math.sign(change)) {
@@ -61,18 +76,28 @@ function formatChangePercentage(changePct) {
   }
 }
 
+//a function to render fetched data (using api keys)
 function ResultsView(viewId) {
   this.container = document.querySelector(viewId);
 
-  this.renderPeople = function(people){
+
+  this.renderStockData = function(stockData){
         this.removeChildElements()
-        if(people == null 
-          || people["Global Quote"] == null 
-          || Object.keys(people["Global Quote"]).length === 0){
-          const elem = ejs.render(noResultsView)
+        //validate if stockData is not empty or if there is result
+        if(stockData != null && stockData.error != null) {
+          const elem = ejs.render(noResultsView, stockData)
           this.container.insertAdjacentHTML('afterbegin', elem)
+         
+          //display error message if there is no data
+        } else if(stockData == null 
+          || stockData["Global Quote"] == null 
+          || Object.keys(stockData["Global Quote"]).length === 0){
+          const elem = ejs.render(noResultsView, {error:"There are no results matching this search."})
+          this.container.insertAdjacentHTML('afterbegin', elem)
+
+          //in other cases display data
         } else {
-          const quote = people["Global Quote"];
+          const quote = stockData["Global Quote"];
           const change = new Number(quote["09. change"]);
           const elem = ejs.render(stockTickerView, 
               {stockSymbol:quote["01. symbol"],
@@ -88,6 +113,7 @@ function ResultsView(viewId) {
         }
   }
 
+  //remove previous search output
   this.removeChildElements = function(){
     this.container.querySelectorAll('aside').forEach(item=>{
       this.container.removeChild(item)
